@@ -2,6 +2,10 @@
 
 Código de Week6 / Server 
 
+- Node
+- Express
+- Mongo (Mongoose)
+
 - TS...
 
 ## Installation
