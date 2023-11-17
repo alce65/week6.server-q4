@@ -24,7 +24,20 @@ const server = createServer((req, res) => {
   console.log('url', url);
 
   res.setHeader('Content-type', 'text/html');
-  res.write('<h1>Hola Mundo</h1>');
+  if (url.pathname.toLowerCase() === '/calculator') {
+    // Ruta de /calculator
+
+    const a = url.searchParams.get('a');
+    const b = url.searchParams.get('b');
+
+    res.write('<h2>Resultados</h2>');
+    res.write(`<p>Suma: ${a! + b!}</p>`);
+  } else {
+    // Otra ruta
+    res.write('<h1>Hola Mundo</h1>');
+    // Error management server.emit('error', new Error(`Unsupported pathname`));
+  }
+
   res.end();
 });
 
